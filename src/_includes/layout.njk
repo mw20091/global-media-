@@ -17,7 +17,6 @@
     <meta name="twitter:title" content="{{ title or 'TT Media' }} | {{ site.name }}" />
     <meta name="twitter:description" content="{{ description or site.description }}" />
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/admin-panel.css" />
     <link rel="icon" href="/assets/favicon.ico" />
     {% if site.adsenseClient %}
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsenseClient }}" crossorigin="anonymous"></script>
@@ -38,7 +37,7 @@
       </div>
     </header>
 
-    <main class="container">
+    <main class="container page-shell-main">
       {{ content | safe }}
     </main>
 
@@ -54,8 +53,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/assets/js/admin-panel.js" defer></script>
   </body>
 </html>

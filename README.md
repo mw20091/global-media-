@@ -13,17 +13,17 @@ Then open `http://localhost:8080`.
 
 ## Deployment
 
-This project is built for Netlify:
+This project is built for Vercel:
 
 1. Push this repository to GitHub.
-2. In Netlify, choose Add new site > Import from GitHub.
-3. Set build command to `npm run build`.
-4. Set publish directory to `_site`.
-5. Enable GitHub OAuth for the admin panel in Netlify.
+2. In Vercel, import the project from GitHub.
+3. Set the build command to `npm run build`.
+4. Set the output directory to `_site`.
+5. Add any environment variables or deployment settings required by Supabase.
 
 ## Admin panel
 
-Open `/admin-panel` in your site. Sign in with the admin password:
+Open `/admin/` in your site. Sign in with the admin password:
 
 ```text
 admin123
@@ -38,7 +38,7 @@ For a live database-backed news admin, configure Supabase and use the anon/publi
 ## Before launch
 
 - Update the site details in `src/_data/site.json`
-- Update the GitHub repo in `admin/config.yml`
+- Update the site URL and email placeholders in `src/pages/*.md`
 - Replace all placeholders in `src/pages/*.md`
 - Set your real domain in `src/robots.txt`
 - Remove the sample posts and publish original content

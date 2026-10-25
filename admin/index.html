@@ -4,8 +4,67 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TT Media Admin</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/admin-panel.css" />
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
+    <div class="admin-shell">
+      <section id="adminLoginBox" class="admin-login admin-card">
+        <h1>TT Media Admin</h1>
+        <p>Enter the password to access the newsroom dashboard.</p>
+        <form id="adminLoginForm" class="admin-form">
+          <label for="adminPassword" class="admin-hint">Password</label>
+          <input id="adminPassword" type="password" placeholder="Enter admin password" required />
+          <button class="button primary" type="submit">Log in</button>
+        </form>
+      </section>
+
+      <section id="adminDashboard" class="admin-dashboard hidden">
+        <div class="admin-topbar">
+          <h1>Newsroom dashboard</h1>
+          <button id="logoutBtn" class="button secondary" type="button">Log out</button>
+        </div>
+
+        <div class="admin-grid">
+          <div class="admin-panel-card">
+            <h2>Publish new story</h2>
+            <form id="articleForm" class="admin-form">
+              <div class="admin-form admin-form--stacked">
+                <input id="title" type="text" placeholder="Story headline" required />
+                <input id="author" type="text" placeholder="Author name" />
+                <select id="category">
+                  <option value="World">World</option>
+                  <option value="Politics">Politics</option>
+                  <option value="Business">Business</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Culture">Culture</option>
+                  <option value="Opinion">Opinion</option>
+                </select>
+                <input id="publishDate" type="date" />
+                <textarea id="description" rows="3" placeholder="Short summary"></textarea>
+                <textarea id="body" rows="8" placeholder="Full article copy" required></textarea>
+              </div>
+
+              <div class="upload-box">
+                <label for="imageUpload">Story image</label>
+                <input id="imageUpload" type="file" accept="image/*" />
+                <img id="imagePreview" class="hidden" alt="Preview" />
+              </div>
+
+              <button class="button primary" type="submit">Save story</button>
+            </form>
+          </div>
+
+          <aside class="admin-panel-card">
+            <h2>Published stories</h2>
+            <div id="articleList" class="article-list"></div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/admin-panel.js" defer></script>
   </body>
 </html>

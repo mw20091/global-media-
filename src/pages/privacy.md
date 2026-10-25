@@ -2,7 +2,7 @@
 layout: layout.njk
 title: Privacy Policy
 description: Privacy policy for TT Media, including data collection, consent, rights, and retention practices.
-permalink: /pages/privacy/
+permalink: /privacy/
 ---
 
 <article class="page-shell">

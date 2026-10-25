@@ -2,7 +2,7 @@
 layout: layout.njk
 title: Terms & Conditions
 description: Terms and conditions for using TT Media.
-permalink: /pages/terms/
+permalink: /terms/
 ---
 
 <article class="page-shell">
@@ -18,7 +18,7 @@ permalink: /pages/terms/
 
   <h2>2. Use of Content</h2>
 
-  <p>All content on TT Media is provided for informational and editorial purposes. You may access and read content for personal, non-commercial use, but you may not reproduce, republish, or redistribute material without permission.</p>
+  <p>All content on TT Media is provided for informational and editorial purposes. You may access and read content for personal, non-commercial use, but you may not reproduce, republish, or redistribute it without permission.</p>
 
   <h2>3. Intellectual Property</h2>
 

@@ -1,7 +1,7 @@
 {
   "name": "tt-media",
   "version": "1.0.0",
-  "description": "TT Media — news site MVP with Eleventy and Decap CMS",
+  "description": "TT Media — news site with Eleventy admin panel",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
@@ -10,13 +10,11 @@
   "keywords": [
     "news",
     "eleventy",
-    "cms",
     "static-site"
   ],
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "decap-cms": "^3.1.0"
+    "@11ty/eleventy": "^3.0.0"
   }
 }

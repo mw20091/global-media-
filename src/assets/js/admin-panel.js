@@ -1,77 +1,61 @@
----
-layout: layout.njk
-title: Admin Panel
-description: TT Media admin dashboard for creating and publishing articles and managing ad slots.
-permalink: /admin-panel/
----
-
-<section class="admin-shell">
-  <div class="admin-login" id="adminLoginBox">
-    <div class="admin-card">
-      <h1>Admin Access</h1>
-      <p>Enter the admin password to open the content dashboard.</p>
-      <form id="adminLoginForm" class="admin-form">
-        <input id="adminPassword" type="password" placeholder="Password" autocomplete="current-password" required />
-        <button type="submit" class="button primary">Open dashboard</button>
-      </form>
-      <p class="admin-hint">Demo password: <strong>admin123</strong></p>
-    </div>
-  </div>
-
-  <div class="admin-dashboard hidden" id="adminDashboard">
-    <div class="admin-topbar">
-      <div>
-        <p class="eyebrow">Content dashboard</p>
-        <h1>TT Media Admin</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or "TT Media" }} | {{ site.name }}</title>
+    <meta name="description" content="{{ description or site.description }}" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title or 'TT Media' }} | {{ site.name }}" />
+    <meta property="og:description" content="{{ description or site.description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}/assets/images/default-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or 'TT Media' }} | {{ site.name }}" />
+    <meta name="twitter:description" content="{{ description or site.description }}" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/admin-panel.css" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    {% if site.adsenseClient %}
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsenseClient }}" crossorigin="anonymous"></script>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/">TT Media</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/category/world/">World</a>
+          <a href="/category/business/">Business</a>
+          <a href="/category/technology/">Technology</a>
+          <a href="/pages/about/">About</a>
+          <a href="/pages/contact/">Contact</a>
+        </nav>
       </div>
-      <button id="logoutBtn" class="button secondary" type="button">Logout</button>
-    </div>
+    </header>
 
-    <div class="admin-grid">
-      <section class="admin-panel-card">
-        <h2>Publish story</h2>
-        <form id="articleForm" class="admin-form admin-form--stacked">
-          <input type="text" id="title" placeholder="Article title" required />
-          <input type="text" id="author" placeholder="Author" value="TT Media Desk" required />
-          <select id="category">
-            <option value="World">World</option>
-            <option value="Politics">Politics</option>
-            <option value="Business">Business</option>
-            <option value="Technology">Technology</option>
-            <option value="Sports">Sports</option>
-            <option value="Culture">Culture</option>
-            <option value="Opinion">Opinion</option>
-          </select>
-          <input type="date" id="publishDate" />
-          <textarea id="description" rows="3" placeholder="Short summary"></textarea>
-          <textarea id="body" rows="8" placeholder="Write your article here..." required></textarea>
+    <main class="container">
+      {{ content | safe }}
+    </main>
 
-          <div class="upload-box">
-            <label for="imageUpload">Upload image</label>
-            <input id="imageUpload" type="file" accept="image/*" />
-            <img id="imagePreview" alt="Image preview" class="hidden" />
-          </div>
-
-          <div class="ad-slot admin-ad-slot">
-            <span>AdSense Slot 1</span>
-          </div>
-          <div class="ad-slot admin-ad-slot">
-            <span>AdSense Slot 2</span>
-          </div>
-
-          <button type="submit" class="button primary">Save story</button>
-        </form>
-      </section>
-
-      <aside class="admin-panel-card">
-        <h2>Recent stories</h2>
-        <div id="articleList" class="article-list"></div>
-        <div class="ad-slot admin-ad-slot sidebar-ad">
-          <span>Sidebar Ad</span>
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 TT Media</p>
+        <div class="footer-links">
+          <a href="/pages/privacy/">Privacy</a>
+          <a href="/pages/terms/">Terms</a>
+          <a href="/pages/editorial-policy/">Editorial policy</a>
+          <a href="/pages/cookies/">Cookies</a>
+          <a href="/pages/contact/">Contact</a>
         </div>
-      </aside>
-    </div>
-  </div>
-</section>
+      </div>
+    </footer>
 
-<script src="/assets/js/admin-panel.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/admin-panel.js" defer></script>
+  </body>
+</html>

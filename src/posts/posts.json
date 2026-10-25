@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "title": "Breaking News",
+      "description": "Latest update from the newsroom.",
+      "author": "TT Media Desk",
+      "date": "2026-10-25",
+      "category": "World",
+      "tags": ["breaking", "news"],
+      "body": "This is a sample article. Replace it with your own reporting."
+    }
+  ]
+}

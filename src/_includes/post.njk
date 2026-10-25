@@ -1,0 +1,23 @@
+---
+layout: layout.njk
+permalink: /posts/{{ page.fileSlug }}/
+---
+
+<article class="article-shell">
+  <header class="article-header">
+    <div class="eyebrow">{{ category }}</div>
+    <h1>{{ title }}</h1>
+    <div class="article-meta">
+      <span>{{ author }}</span>
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+    </div>
+  </header>
+
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+
+  <aside class="ad-slot ad-slot--article">
+    <span>AdSense slot</span>
+  </aside>
+</article>

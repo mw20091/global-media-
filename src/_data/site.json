@@ -1,0 +1,17 @@
+{
+  "name": "TT Media",
+  "url": "https://www.yourdomain.com",
+  "description": "Breaking news, trends, and stories from around the world.",
+  "email": "editor@yourdomain.com",
+  "categories": [
+    "World",
+    "Politics",
+    "Business",
+    "Technology",
+    "Sports",
+    "Culture",
+    "Opinion"
+  ],
+  "adsenseClient": "",
+  "defaultAuthor": "TT Media Desk"
+}

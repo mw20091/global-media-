@@ -1,0 +1,46 @@
+---
+layout: layout.njk
+title: TT Media
+permalink: /
+---
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="eyebrow">Live updates</div>
+    <h1>Breaking news, trending stories, and the stories shaping the day.</h1>
+    <p>TT Media delivers current events, smart analysis, and timely coverage across the world.</p>
+    <div class="hero__actions">
+      <a href="#latest" class="button primary">Read latest</a>
+      <a href="/pages/contact" class="button secondary">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="latest">
+  <div class="section__heading">
+    <h2>Latest stories</h2>
+  </div>
+  <div class="card-grid">
+    {% for post in collections.posts | reverse | limit(6) %}
+      <article class="story-card">
+        <div class="story-card__meta">
+          <span>{{ post.data.category }}</span>
+          <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        </div>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description or post.templateContent | striptags | truncate(140) }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="section__heading">
+    <h2>Top categories</h2>
+  </div>
+  <div class="category-grid">
+    {% for category in site.categories %}
+      <div class="category-pill">{{ category }}</div>
+    {% endfor %}
+  </div>
+</section>

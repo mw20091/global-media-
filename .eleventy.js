@@ -5,6 +5,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/ads.txt");
   eleventyConfig.addPassthroughCopy("src/site.webmanifest");
   eleventyConfig.addWatchTarget("src/assets");
+  eleventyConfig.ignores.add("src/index.html");
 
   eleventyConfig.addFilter("truncate", (value, length = 145) => {
     if (!value) return "";

@@ -1,44 +1,38 @@
 ---
 layout: layout.njk
-title: Terms of Service
-description: Terms of use for the TT Media website, including content use, subscriptions, and liability disclaimers.
-permalink: /pages/terms/
+title: Editorial Policy
+description: Editorial standards, sourcing rules, corrections process, and independence policy for TT Media.
+permalink: /pages/editorial-policy/
 ---
 
 <article class="page-shell">
-  <h1>Terms of Service</h1>
-  <p><strong>Effective Date:</strong> October 25, 2026</p>
+  <h1>Editorial Policy</h1>
 
-  <p>These Terms of Service govern your access to and use of the TT Media platform. By accessing or using our editorial content, you agree to be bound by these legal terms.</p>
+  <p>TT Media operates with editorial independence and a responsibility to serve the public interest through responsible journalism, transparent sourcing, and disciplined verification.</p>
 
-  <h2>1. Proprietary Rights and Intellectual Property</h2>
+  <h2>1. Institutional Independence</h2>
 
-  <p>All reporting, analysis, imagery, typography, design, and site architecture published on this platform constitute the intellectual property of TT Media, unless otherwise stated.</p>
+  <p>TT Media is committed to complete editorial autonomy. Our journalistic decisions are driven by public interest, factual accuracy, and institutional integrity, not by commercial pressure, political influence, or private agendas.</p>
 
-  <p><strong>Permitted Use:</strong> Users may reference, excerpt, or hyperlink to our content for non-commercial commentary or informational purposes, provided appropriate journalistic attribution is maintained.</p>
+  <h2>2. Verification and Sourcing Standards</h2>
 
-  <p><strong>Prohibited Use:</strong> Automated data mining, systematic scraping, unauthorized syndication, or commercial redistribution of editorial content is strictly prohibited without written permission.</p>
+  <p>We uphold rigorous standards of journalistic integrity. Our reporters rely on primary source materials, public records, verified expert testimony, and reputable documentation whenever possible.</p>
 
-  <h2>2. Subscriber Obligations</h2>
+  <p>We do not publish rumors, unverified assertions, or anonymous claims without substantial corroboration and careful review.</p>
 
-  <p>Subscribers must provide a valid and operational email address to receive updates. Using automated scripts, bots, fake identities, or malicious systems to create or exploit subscription access will result in immediate suspension or termination of access.</p>
+  <h2>3. Corrections and Accountability</h2>
 
-  <h2>3. Limitation of Liability and Disclaimers</h2>
+  <p>Factual accuracy is a core principle of our newsroom. If a material error is identified, TT Media will correct it promptly and transparently. Corrections will be clearly noted and, where relevant, explained in context.</p>
 
-  <p>TT Media provides content for informational and analytical purposes only. While our newsroom applies rigorous verification protocols, we do not guarantee the completeness or absolute accuracy of every article and provide all content on an "as is" basis.</p>
+  <h2>4. Ethics and Standards</h2>
 
-  <p>We disclaim liability for financial, professional, or personal decisions made based on published material. We do not accept responsibility for losses arising from reliance on information on this website.</p>
+  <p>We strive to avoid plagiarism, sensationalism, and misleading framing. We distinguish clearly between news reporting, analysis, and opinion, and we disclose conflicts of interest where relevant.</p>
 
-  <h2>4. Third-Party Links</h2>
+  <h2>5. Transparency</h2>
 
-  <p>Our website may contain links to third-party websites. We are not responsible for the content, security, or privacy practices of external websites.</p>
-
-  <h2>5. Changes and Updates</h2>
-
-  <p>We may revise these Terms from time to time. Continued use of the website after changes are posted constitutes acceptance of the updated Terms.</p>
+  <p>TT Media values openness with our audience. We are committed to explaining how reporting decisions are made and to maintaining trust through honest, clear, and accountable journalism.</p>
 
   <h2>6. Contact</h2>
 
-  <p>For questions about these Terms, contact us at:</p>
-  <p>Email: editor@yourdomain.com</p>
+  <p>For editorial concerns, corrections, or inquiries, contact us at editor@yourdomain.com.</p>
 </article>

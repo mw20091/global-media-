@@ -7,6 +7,7 @@ permalink: /pages/terms/
 
 <article class="page-shell">
   <h1>Terms & Conditions</h1>
+
   <p><strong>Effective Date:</strong> October 25, 2026</p>
 
   <p>These Terms and Conditions govern your use of TT Media and all content, services, and features made available through this website.</p>

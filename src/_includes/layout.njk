@@ -1,128 +1,18 @@
 ---
 layout: layout.njk
-title: TT Media
-permalink: /
+title: Cookie Policy
+description: Cookies and consent information for TT Media.
+permalink: /pages/cookies/
 ---
 
-{% set latest = collections.posts | reverse %}
-{% set featured = latest[0] %}
-{% set trending = latest | slice(0, 4) %}
+<article class="page-shell">
+  <h1>Cookie Policy</h1>
 
-<section class="ticker-bar">
-  <div class="container ticker-inner">
-    <span class="ticker-label">Live</span>
-    <div class="ticker-items">
-      {% for post in latest.slice(0, 4) %}
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+  <p>TT Media uses limited first-party technical cookies to maintain website performance, ensure stability, and support secure website operations.</p>
 
-<section class="hero">
-  <div class="hero__inner">
-    <div class="eyebrow">Live updates</div>
-    <h1>Breaking news, trending stories, and the moment the world is watching.</h1>
-    <p>TT Media brings you credible reporting, sharp analysis, and the fastest coverage across global news, business, technology, and culture.</p>
-    <div class="hero__actions">
-      <a href="#latest" class="button primary">Read latest</a>
-      <a href="/pages/contact/" class="button secondary">Contact us</a>
-    </div>
-  </div>
-  <div class="hero__panel">
-    {% if featured %}
-      <span class="mini-label">Top story</span>
-      <h2><a href="{{ featured.url }}">{{ featured.data.title }}</a></h2>
-      <p>{{ featured.data.description or featured.templateContent | striptags | truncate(150) }}</p>
-      <div class="meta-row">
-        <span>{{ featured.data.category }}</span>
-        <time datetime="{{ featured.date | htmlDateString }}">{{ featured.date | readableDate }}</time>
-      </div>
-    {% endif %}
-  </div>
-</section>
+  <p>We do not deploy third-party advertising cookies or cross-site tracking technologies for behavioral profiling. Our goal is to provide a privacy-conscious news experience without unnecessary monitoring.</p>
 
-<div class="ad-slot ad-slot--top-leaderboard">
-  <span>AdSense Leaderboard</span>
-</div>
+  <p>By continuing to browse this website, you acknowledge that we may use essential cookies to support performance and security functions.</p>
 
-<section class="section">
-  <div class="section__heading row-heading">
-    <h2>Trending now</h2>
-    <a href="/category/world/">View all</a>
-  </div>
-  <div class="trending-grid">
-    {% for post in trending %}
-      <article class="trend-card">
-        <div class="story-card__meta">
-          <span>{{ post.data.category }}</span>
-          <span>#{{ loop.index }}</span>
-        </div>
-        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-        <p>{{ post.data.description or post.templateContent | striptags | truncate(110) }}</p>
-      </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="content-grid">
-  <div class="main-column">
-    <section class="section" id="latest">
-      <div class="section__heading row-heading">
-        <h2>Latest stories</h2>
-        <a href="/category/world/">See more</a>
-      </div>
-      <div class="stacked-list">
-        {% for post in latest %}
-          <article class="story-row">
-            <div class="story-row__content">
-              <div class="story-card__meta">
-                <span>{{ post.data.category }}</span>
-                <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-              </div>
-              <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-              <p>{{ post.data.description or post.templateContent | striptags | truncate(180) }}</p>
-            </div>
-            <div class="story-row__badge">News</div>
-          </article>
-        {% endfor %}
-      </div>
-    </section>
-  </div>
-
-  <aside class="sidebar-column">
-    <div class="sidebar-card">
-      <h3>Top stories</h3>
-      <ul class="top-list">
-        {% for post in latest | slice(0, 5) %}
-          <li>
-            <span>{{ loop.index }}</span>
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="ad-slot ad-slot--sidebar">
-      <span>AdSense Sidebar</span>
-    </div>
-
-    <div class="sidebar-card sidebar-card--newsletter">
-      <h3>Daily briefing</h3>
-      <p>Get the top headlines delivered each morning.</p>
-      <button class="button primary" type="button">Join newsletter</button>
-    </div>
-  </aside>
-</section>
-
-<section class="section section--alt">
-  <div class="section__heading row-heading">
-    <h2>Browse by category</h2>
-    <a href="/categories/">All sections</a>
-  </div>
-  <div class="category-grid">
-    {% for category in site.categories %}
-      <a href="/category/{{ category | slug }}/" class="category-pill">{{ category }}</a>
-    {% endfor %}
-  </div>
-</section>
+  <p>You may disable cookies in your browser settings at any time, although this may affect some website functionality.</p>
+</article>

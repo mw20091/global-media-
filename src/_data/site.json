@@ -1,17 +1,57 @@
-{
-  "name": "TT Media",
-  "url": "https://www.yourdomain.com",
-  "description": "Breaking news, trends, and stories from around the world.",
-  "email": "editor@yourdomain.com",
-  "categories": [
-    "World",
-    "Politics",
-    "Business",
-    "Technology",
-    "Sports",
-    "Culture",
-    "Opinion"
-  ],
-  "adsenseClient": "",
-  "defaultAuthor": "TT Media Desk"
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or "TT Media" }} | {{ site.name }}</title>
+    <meta name="description" content="{{ description or site.description }}" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title or 'TT Media' }} | {{ site.name }}" />
+    <meta property="og:description" content="{{ description or site.description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}/assets/images/default-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or 'TT Media' }} | {{ site.name }}" />
+    <meta name="twitter:description" content="{{ description or site.description }}" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    {% if site.adsenseClient %}
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsenseClient }}" crossorigin="anonymous"></script>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/">TT Media</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/category/world/">World</a>
+          <a href="/category/business/">Business</a>
+          <a href="/category/technology/">Technology</a>
+          <a href="/pages/about/">About</a>
+          <a href="/pages/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 TT Media</p>
+        <div class="footer-links">
+          <a href="/pages/privacy/">Privacy</a>
+          <a href="/pages/terms/">Terms</a>
+          <a href="/pages/editorial-policy/">Editorial policy</a>
+          <a href="/pages/cookies/">Cookies</a>
+          <a href="/pages/contact/">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

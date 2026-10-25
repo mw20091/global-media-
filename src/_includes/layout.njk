@@ -1,41 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }} | {{ site.name }}</title>
-    <meta name="description" content="{{ description or site.description }}" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    {% if site.adsenseClient %}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsenseClient }}" crossorigin="anonymous"></script>
+---
+layout: layout.njk
+title: TT Media
+permalink: /
+---
+
+{% set latest = collections.posts | reverse %}
+{% set featured = latest[0] %}
+{% set trending = latest | slice(0, 4) %}
+
+<section class="ticker-bar">
+  <div class="container ticker-inner">
+    <span class="ticker-label">Live</span>
+    <div class="ticker-items">
+      {% for post in latest.slice(0, 4) %}
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="eyebrow">Live updates</div>
+    <h1>Breaking news, trending stories, and the moment the world is watching.</h1>
+    <p>TT Media brings you credible reporting, sharp analysis, and the fastest coverage across global news, business, technology, and culture.</p>
+    <div class="hero__actions">
+      <a href="#latest" class="button primary">Read latest</a>
+      <a href="/pages/contact/" class="button secondary">Contact us</a>
+    </div>
+  </div>
+  <div class="hero__panel">
+    {% if featured %}
+      <span class="mini-label">Top story</span>
+      <h2><a href="{{ featured.url }}">{{ featured.data.title }}</a></h2>
+      <p>{{ featured.data.description or featured.templateContent | striptags | truncate(150) }}</p>
+      <div class="meta-row">
+        <span>{{ featured.data.category }}</span>
+        <time datetime="{{ featured.date | htmlDateString }}">{{ featured.date | readableDate }}</time>
+      </div>
     {% endif %}
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="/">TT Media</a>
-        <nav class="nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/pages/about/">About</a>
-          <a href="/pages/contact/">Contact</a>
-          <a href="/pages/editorial-policy/">Editorial policy</a>
-        </nav>
-      </div>
-    </header>
+  </div>
+</section>
 
-    <main class="container">
-      {{ content | safe }}
-    </main>
+<div class="ad-slot ad-slot--top-leaderboard">
+  <span>AdSense Leaderboard</span>
+</div>
 
-    <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>© 2026 TT Media</p>
-        <div class="footer-links">
-          <a href="/pages/privacy/">Privacy</a>
-          <a href="/pages/terms/">Terms</a>
-          <a href="/pages/contact/">Contact</a>
+<section class="section">
+  <div class="section__heading row-heading">
+    <h2>Trending now</h2>
+    <a href="/category/world/">View all</a>
+  </div>
+  <div class="trending-grid">
+    {% for post in trending %}
+      <article class="trend-card">
+        <div class="story-card__meta">
+          <span>{{ post.data.category }}</span>
+          <span>#{{ loop.index }}</span>
         </div>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description or post.templateContent | striptags | truncate(110) }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-grid">
+  <div class="main-column">
+    <section class="section" id="latest">
+      <div class="section__heading row-heading">
+        <h2>Latest stories</h2>
+        <a href="/category/world/">See more</a>
       </div>
-    </footer>
-  </body>
-</html>
+      <div class="stacked-list">
+        {% for post in latest %}
+          <article class="story-row">
+            <div class="story-row__content">
+              <div class="story-card__meta">
+                <span>{{ post.data.category }}</span>
+                <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+              </div>
+              <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+              <p>{{ post.data.description or post.templateContent | striptags | truncate(180) }}</p>
+            </div>
+            <div class="story-row__badge">News</div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <aside class="sidebar-column">
+    <div class="sidebar-card">
+      <h3>Top stories</h3>
+      <ul class="top-list">
+        {% for post in latest | slice(0, 5) %}
+          <li>
+            <span>{{ loop.index }}</span>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="ad-slot ad-slot--sidebar">
+      <span>AdSense Sidebar</span>
+    </div>
+
+    <div class="sidebar-card sidebar-card--newsletter">
+      <h3>Daily briefing</h3>
+      <p>Get the top headlines delivered each morning.</p>
+      <button class="button primary" type="button">Join newsletter</button>
+    </div>
+  </aside>
+</section>
+
+<section class="section section--alt">
+  <div class="section__heading row-heading">
+    <h2>Browse by category</h2>
+    <a href="/categories/">All sections</a>
+  </div>
+  <div class="category-grid">
+    {% for category in site.categories %}
+      <a href="/category/{{ category | slug }}/" class="category-pill">{{ category }}</a>
+    {% endfor %}
+  </div>
+</section>

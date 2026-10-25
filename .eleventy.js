@@ -12,6 +12,28 @@ module.exports = function(eleventyConfig) {
     return value.length > length ? value.slice(0, length).trim() + "..." : value;
   });
 
+  eleventyConfig.addFilter("limit", (arr, max) => {
+    if (!Array.isArray(arr)) return [];
+    const limit = Number(max);
+    return Number.isFinite(limit) ? arr.slice(0, limit) : arr;
+  });
+
+  eleventyConfig.addFilter("reject", (arr, test, target) => {
+    if (!Array.isArray(arr)) return [];
+
+    return arr.filter((item) => {
+      if (test === "equalto") {
+        return item !== target;
+      }
+
+      if (item && typeof item === "object" && Object.prototype.hasOwnProperty.call(item, test)) {
+        return item[test] !== target;
+      }
+
+      return true;
+    });
+  });
+
   eleventyConfig.addCollection("categories", (collectionApi) => {
     const categories = new Set();
     collectionApi.getFilteredByGlob("src/posts/*.md").forEach((post) => {

@@ -1,16 +1,17 @@
 {
   "name": "tt-media",
   "version": "1.0.0",
-  "description": "TT Media — news site with Eleventy admin panel",
+  "description": "TT Media — live news site with admin panel",
   "scripts": {
-    "start": "eleventy --serve",
     "build": "eleventy",
-    "dev": "eleventy --serve"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": [
     "news",
     "eleventy",
-    "static-site"
+    "static-site",
+    "live-news"
   ],
   "license": "MIT",
   "private": true,

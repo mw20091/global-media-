@@ -18,6 +18,29 @@ module.exports = function(eleventyConfig) {
     return Number.isFinite(limit) ? arr.slice(0, limit) : arr;
   });
 
+  eleventyConfig.addFilter("date", (value, format = 'default') => {
+    if (!value) return '';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+
+    if (format === 'relative') {
+      const diffMinutes = Math.max(0, Math.round((Date.now() - date.getTime()) / 60000));
+      if (diffMinutes < 60) return `${diffMinutes} min ago`;
+      const diffHours = Math.round(diffMinutes / 60);
+      if (diffHours < 24) return `${diffHours} hr ago`;
+      const diffDays = Math.round(diffHours / 24);
+      return `${diffDays} d ago`;
+    }
+
+    const customFormats = {
+      'ddd, MMM D, YYYY': new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }),
+      default: new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    };
+
+    const formatter = customFormats[format] || customFormats.default;
+    return formatter.format(date);
+  });
+
   eleventyConfig.addFilter("reject", (arr, test, target) => {
     if (!Array.isArray(arr)) return [];
 

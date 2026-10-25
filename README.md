@@ -23,7 +23,17 @@ This project is built for Netlify:
 
 ## Admin panel
 
-Open `/admin` in your deployed site. Sign in with GitHub and publish new articles.
+Open `/admin-panel` in your site. Sign in with the admin password:
+
+```text
+admin123
+```
+
+This dashboard saves posts in browser storage by default for local demo testing. It also supports a real Supabase database connection when configured.
+
+## Database setup
+
+For a live database-backed news admin, configure Supabase and use the anon/public key in the browser. Never use a service role key in frontend JavaScript or commit it to GitHub.
 
 ## Before launch
 
@@ -32,9 +42,11 @@ Open `/admin` in your deployed site. Sign in with GitHub and publish new article
 - Replace all placeholders in `src/pages/*.md`
 - Set your real domain in `src/robots.txt`
 - Remove the sample posts and publish original content
+- Add a real Google AdSense publisher ID only after approval
 
-## AdSense
+## AdSense and legal setup
 
 - Add your publisher ID to `src/_data/site.json` under `adsenseClient`
 - Add your ads.txt line to `src/ads.txt`
-- Place ad units in `src/_includes/post.njk`
+- Place ad unit slots in `src/_includes/post.njk`
+- Ensure your privacy policy, terms, editorial policy, and contact page are published before launch

@@ -6,248 +6,297 @@ permalink: /
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Daily Ledger – Breaking News & Analysis</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f6f6f4; --card:#ffffff; --text:#14181f; --muted:#667085; --line:#e4e4e0;
-  --brand:#c8102e; --brand-dark:#9b0c23; --ink:#0b1220; --ad-bg:#eceae4;
-  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#0e1116; --card:#161a22; --text:#eef0f4; --muted:#98a2b3; --line:#262c38; --ad-bg:#1d222c; --ink:#05070b}
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.5}
-a{color:inherit;text-decoration:none}
-a:hover h1,a:hover h2,a:hover h3{color:var(--brand)}
-.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
-.topbar{background:var(--ink);color:#cfd4dc;font-size:12px}
-.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:36px}
-.topbar a{margin-left:16px;opacity:.85}.topbar a:hover{opacity:1}
-.ticker{background:var(--brand);color:#fff;font-size:13px;font-weight:600}
-.ticker .wrap{display:flex;align-items:center;height:38px;gap:14px;overflow:hidden}
-.ticker b{background:#fff;color:var(--brand);padding:2px 10px;border-radius:3px;font-size:11px;letter-spacing:.08em;flex:none}
-.ticker span{white-space:nowrap;animation:scroll 40s linear infinite}
-@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-header.main{background:var(--card);border-bottom:1px solid var(--line)}
-.masthead{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-.logo{font-family:var(--serif);font-weight:900;font-size:40px;letter-spacing:-.02em}
-.logo em{color:var(--brand);font-style:normal}
-.actions{display:flex;gap:10px;align-items:center}
-.search{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:9px 14px;border-radius:999px;font-size:14px;width:220px}
-.btn{background:var(--brand);color:#fff;border:0;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer}
-.btn:hover{background:var(--brand-dark)}
-nav.cats{border-top:1px solid var(--line)}
-nav.cats .wrap{display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
-nav.cats a{padding:13px 0;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
-nav.cats a:hover,nav.cats a.active{border-color:var(--brand);color:var(--brand)}
-.ad{background:var(--ad-bg);border:1px dashed var(--muted);color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;text-align:center;border-radius:4px;margin:0 auto}
-.ad small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
-.ad strong{font-size:14px;color:var(--text);margin:2px 0}
-.ad-leader{width:100%;max-width:728px;height:90px;margin:22px auto}
-.ad-rect{width:300px;height:250px}
-.ad-sky{width:300px;height:600px}
-.ad-infeed{width:100%;height:120px;margin:10px 0}
-.ad-mobile{display:none;width:320px;height:50px}
-.img{background:linear-gradient(135deg,#2b3445,#566179);position:relative;overflow:hidden;border-radius:6px}
-.img::after{content:"IMAGE";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.2em;font-weight:600}
-.img.c2{background:linear-gradient(135deg,#7a1f2b,#c8102e)}
-.img.c3{background:linear-gradient(135deg,#0f4c5c,#2a9d8f)}
-.img.c4{background:linear-gradient(135deg,#4a3b78,#8a6fd1)}
-.img.c5{background:linear-gradient(135deg,#7a5c14,#e0a800)}
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
-.meta{font-size:12px;color:var(--muted)}
-.hero{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:34px}
-.lead .img{aspect-ratio:16/9}
-.lead h1{font-family:var(--serif);font-size:38px;line-height:1.15;margin:14px 0 10px}
-.lead p{color:var(--muted);font-size:16px;margin-bottom:8px}
-.stack{display:flex;flex-direction:column;gap:18px}
-.stack article{display:grid;grid-template-columns:110px 1fr;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.stack article:last-child{border:0}
-.stack .img{aspect-ratio:1}
-.stack h3{font-size:16px;line-height:1.3;margin-bottom:4px}
-.layout{display:grid;grid-template-columns:1fr 300px;gap:34px}
-.section-title{display:flex;align-items:center;gap:12px;margin:8px 0 18px;font-family:var(--serif);font-size:26px}
-.section-title::after{content:"";flex:1;height:2px;background:var(--line)}
-.section-title::before{content:"";width:8px;height:26px;background:var(--brand);border-radius:2px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:30px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.1)}
-.card .img{aspect-ratio:16/10;border-radius:0}
-.card div.body{padding:14px}
-.card h3{font-size:17px;line-height:1.3;margin-bottom:6px}
-.list article{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
-.list .img{aspect-ratio:4/3}
-.list h3{font-family:var(--serif);font-size:21px;line-height:1.25;margin-bottom:6px}
-.list p{color:var(--muted);font-size:14px}
-aside{display:flex;flex-direction:column;gap:26px}
-.sticky{position:sticky;top:16px;display:flex;flex-direction:column;gap:26px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
-.box h4{font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;border-bottom:2px solid var(--brand);padding-bottom:8px}
-.trend{counter-reset:t}
-.trend li{list-style:none;display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
-.trend li::before{counter-increment:t;content:counter(t);font-family:var(--serif);font-size:24px;color:var(--brand);line-height:1}
-.trend li:last-child{border:0}
-.newsletter input{width:100%;padding:11px;border:1px solid var(--line);border-radius:6px;margin:8px 0;background:var(--bg);color:var(--text)}
-.newsletter .btn{width:100%;border-radius:6px}
-.brand-promo{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff;border-radius:10px;overflow:hidden;margin:34px 0}
-.brand-promo .txt{padding:34px}
-.brand-promo .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f5b301;font-weight:700}
-.brand-promo h2{font-family:var(--serif);font-size:30px;margin:10px 0}
-.brand-promo p{color:#b8c0cc;margin-bottom:18px}
-.brand-promo .img{border-radius:0;min-height:240px;background:linear-gradient(135deg,#c8102e,#f5b301)}
-.brand-promo .img::after{content:"BRAND IMAGE / LOGO"}
-.partners{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 34px}
-.partners div{flex:1;min-width:140px;height:64px;background:var(--card);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.1em}
-footer{background:var(--ink);color:#9aa3b2;margin-top:50px;padding:44px 0 20px;font-size:14px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
-footer h5{color:#fff;margin-bottom:12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-footer a{display:block;padding:4px 0}footer a:hover{color:#fff}
-.copy{border-top:1px solid #1f2735;padding-top:18px;display:flex;justify-content:space-between;font-size:12px}
-.sticky-footer-ad{position:fixed;bottom:0;left:0;right:0;z-index:50;display:none;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding:6px}
-@media(max-width:1000px){
-  .layout{grid-template-columns:1fr}
-  .hero{grid-template-columns:1fr}
-  .grid3{grid-template-columns:repeat(2,1fr)}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .sticky{position:static}
-}
-@media(max-width:640px){
-  .search{display:none}
-  .logo{font-size:30px}
-  .lead h1{font-size:28px}
-  .grid3{grid-template-columns:1fr}
-  .list article{grid-template-columns:110px 1fr}
-  .list p{display:none}
-  .brand-promo{grid-template-columns:1fr}
-  .ad-leader{display:none}
-  .ad-mobile{display:flex;margin:14px auto}
-  .sticky-footer-ad{display:flex}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global Media – Breaking News & Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f6f4; --card:#fff; --text:#14181f; --muted:#667085; --line:#e4e4e0;
+      --brand:#c8102e; --brand-dark:#9b0c23; --ink:#0b1220; --ad-bg:#eceae4;
+      --serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{--bg:#0e1116; --card:#161a22; --text:#eef0f4; --muted:#98a2b3; --line:#262c38; --ad-bg:#1d222c; --ink:#05070b}
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    a:hover h1,a:hover h2,a:hover h3{color:var(--brand)}
+    .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+    .topbar{background:var(--ink);color:#cfd4dc;font-size:12px}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:36px}
+    .topbar a{margin-left:16px;opacity:.85}.topbar a:hover{opacity:1}
+    .ticker{background:var(--brand);color:#fff;font-size:13px;font-weight:600}
+    .ticker .wrap{display:flex;align-items:center;height:38px;gap:14px;overflow:hidden}
+    .ticker b{background:#fff;color:var(--brand);padding:2px 10px;border-radius:3px;font-size:11px;letter-spacing:.08em;flex:none}
+    .ticker span{white-space:nowrap;animation:scroll 70s linear infinite}
+    .ticker:hover span{animation-play-state:paused}
+    @keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)} }
+    header.main{background:var(--card);border-bottom:1px solid var(--line)}
+    .masthead{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:52px;height:52px;flex:none}
+    .logo .word{display:flex;flex-direction:column;line-height:1}
+    .logo .g{font-weight:800;font-size:30px;letter-spacing:2px;color:var(--text)}
+    .logo .m{font-weight:600;font-size:15px;letter-spacing:9px;color:var(--brand);margin-top:5px}
+    .actions{display:flex;gap:10px;align-items:center}
+    .search{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:9px 14px;border-radius:999px;font-size:14px;width:220px}
+    .btn{background:var(--brand);color:#fff;border:0;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer}
+    .btn:hover{background:var(--brand-dark)}
+    nav.cats{border-top:1px solid var(--line)}
+    nav.cats .wrap{display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+    nav.cats a{padding:13px 0;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
+    nav.cats a:hover,nav.cats a.active{border-color:var(--brand);color:var(--brand)}
+    .ad{background:var(--ad-bg);border:1px dashed var(--muted);color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;text-align:center;border-radius:6px}
+    .ad small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+    .ad strong{font-size:14px;color:var(--text);margin:2px 0}
+    .ad img{display:block;max-width:100%;height:auto}
+    .ad-leader{width:100%;max-width:728px;height:90px;margin:22px auto}
+    .ad-rect{width:300px;height:250px}
+    .ad-sky{width:300px;height:600px}
+    .ad-infeed{width:100%;height:120px;margin:10px 0}
+    .ad-mobile{display:none;width:320px;height:50px}
+    .img{background:linear-gradient(135deg,#2b3445,#566179);position:relative;overflow:hidden;border-radius:6px}
+    .img::after{content:"IMAGE";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.2em;font-weight:600}
+    .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .img:has(img)::after{display:none}
+    .img.c2{background:linear-gradient(135deg,#7a1f2b,#c8102e)}
+    .img.c3{background:linear-gradient(135deg,#0f4c5c,#2a9d8f)}
+    .img.c4{background:linear-gradient(135deg,#4a3b78,#8a6fd1)}
+    .img.c5{background:linear-gradient(135deg,#7a5c14,#e0a800)}
+    .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+    .meta{font-size:12px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:34px}
+    .lead .img{aspect-ratio:16/9}
+    .lead h1{font-family:var(--serif);font-size:38px;line-height:1.15;margin:8px 0 10px}
+    .lead p{color:var(--muted);font-size:16px;margin-bottom:8px}
+    .stack{display:flex;flex-direction:column;gap:18px}
+    .stack article{display:grid;grid-template-columns:110px 1fr;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .stack article:last-child{border:0}
+    .stack .img{aspect-ratio:1}
+    .stack h3{font-size:16px;line-height:1.3;margin-bottom:4px}
+    .layout{display:grid;grid-template-columns:1fr 300px;gap:34px}
+    .section-title{display:flex;align-items:center;gap:12px;margin:8px 0 18px;font-family:var(--serif);font-size:26px}
+    .section-title::after{content:"";flex:1;height:2px;background:var(--line)}
+    .section-title::before{content:"";width:8px;height:26px;background:var(--brand);border-radius:2px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:30px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.2s;display:block}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.1)}
+    .card .img{aspect-ratio:16/10;border-radius:0}
+    .card .body{padding:14px}
+    .card h3{font-size:17px;line-height:1.3;margin-bottom:6px}
+    .list article{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .list .img{aspect-ratio:4/3}
+    .list h3{font-family:var(--serif);font-size:21px;line-height:1.25;margin-bottom:6px}
+    .list p{color:var(--muted);font-size:14px}
+    aside{display:flex;flex-direction:column}
+    .sticky{position:sticky;top:16px;display:flex;flex-direction:column;gap:26px}
+    .box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
+    .box h4{font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;border-bottom:2px solid var(--brand);padding-bottom:8px}
+    .trend{counter-reset:t}
+    .trend li{list-style:none;display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+    .trend li::before{counter-increment:t;content:counter(t);font-family:var(--serif);font-size:24px;color:var(--brand);line-height:1}
+    .trend li:last-child{border:0}
+    .newsletter input{width:100%;padding:11px;border:1px solid var(--line);border-radius:6px;margin:8px 0;background:var(--bg);color:var(--text)}
+    .newsletter .btn{width:100%;border-radius:6px}
+    .brand-promo{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff;border-radius:10px;overflow:hidden;margin:34px 0}
+    .brand-promo .txt{padding:34px}
+    .brand-promo .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f5b301;font-weight:700}
+    .brand-promo h2{font-family:var(--serif);font-size:30px;margin:10px 0}
+    .brand-promo p{color:#b8c0cc;margin-bottom:18px}
+    .brand-promo .img{border-radius:0;min-height:240px;background:linear-gradient(135deg,#c8102e,#f5b301)}
+    .brand-promo .img::after{content:"BRAND IMAGE / LOGO"}
+    .partners{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 34px}
+    .partners div{flex:1;min-width:140px;height:64px;background:var(--card);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;color:var(--muted);font-size:12px;font-weight:700}
+    footer{background:var(--ink);color:#9aa3b2;margin-top:50px;padding:44px 0 20px;font-size:14px}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+    footer h5{color:#fff;margin-bottom:12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+    footer a{display:block;padding:4px 0}footer a:hover{color:#fff}
+    footer .logo .g{color:#fff}
+    .copy{border-top:1px solid #1f2735;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:8px}
+    .sticky-footer-ad{position:fixed;bottom:0;left:0;right:0;z-index:50;display:none;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding:6px}
+    @media(max-width:1000px){
+      .layout,.hero{grid-template-columns:1fr}
+      .grid3{grid-template-columns:repeat(2,1fr)}
+      .fgrid{grid-template-columns:1fr 1fr}
+      .sticky{position:static}
+    }
+    @media(max-width:640px){
+      .search{display:none}
+      .logo svg{width:42px;height:42px}.logo .g{font-size:24px}
+      .lead h1{font-size:28px}
+      .grid3{grid-template-columns:1fr}
+      .list article{grid-template-columns:110px 1fr}
+      .list p{display:none}
+      .brand-promo{grid-template-columns:1fr}
+      .ad-leader{display:none}
+      .ad-mobile{display:flex;margin:14px auto}
+      .sticky-footer-ad{display:flex}
+    }
+  </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">
-  <div id="date">Sunday, October 25, 2026</div>
-  <div><a href="#">Advertise</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Sign in</a></div>
-</div></div>
-<div class="ticker"><div class="wrap">
-  <b>BREAKING</b>
-  <span>Headline one goes here &nbsp;•&nbsp; Headline two goes here &nbsp;•&nbsp; Headline three goes here &nbsp;•&nbsp; Markets update placeholder</span>
-</div></div>
-<header class="main">
-  <div class="wrap">
-    <div class="masthead">
-      <a href="#" class="logo">The Daily <em>Ledger</em></a>
-      <div class="actions">
-        <input class="search" type="search" placeholder="Search news...">
-        <button class="btn">Subscribe</button>
-      </div>
-    </div>
-  </div>
-  <nav class="cats"><div class="wrap">
-    <a href="#" class="active">Home</a><a href="#">World</a><a href="#">Politics</a><a href="#">Business</a>
-    <a href="#">Technology</a><a href="#">Sports</a><a href="#">Entertainment</a><a href="#">Health</a><a href="#">Opinion</a><a href="#">Video</a>
-  </div></nav>
-</header>
-<div class="wrap">
-  <div class="ad ad-leader"><small>Advertisement</small><strong>AD SLOT — 728 × 90</strong>Paste ad code here</div>
-  <div class="ad ad-mobile"><small>Ad</small>320 × 50</div>
-  <section class="hero">
-    <article class="lead">
-      <a href="#">
-        <div class="img"></div>
-        <div class="tag" style="margin-top:14px">Top Story</div>
-        <h1>Main headline goes here, written to grab attention in two lines</h1>
-        <p>Short summary of the lead story. Two sentences that explain why readers should care and what happens next.</p>
-        <div class="meta">By Author Name • 12 min ago • 5 min read</div>
-      </a>
-    </article>
-    <div class="stack">
-      <article><div class="img c2"></div><a href="#"><div class="tag">World</div><h3>Secondary headline placeholder goes here</h3><div class="meta">25 min ago</div></a></article>
-      <article><div class="img c3"></div><a href="#"><div class="tag">Business</div><h3>Secondary headline placeholder goes here</h3><div class="meta">1 hr ago</div></a></article>
-      <article><div class="img c4"></div><a href="#"><div class="tag">Tech</div><h3>Secondary headline placeholder goes here</h3><div class="meta">2 hrs ago</div></a></article>
-      <article><div class="img c5"></div><a href="#"><div class="tag">Sports</div><h3>Secondary headline placeholder goes here</h3><div class="meta">3 hrs ago</div></a></article>
-    </div>
-  </section>
-  <div class="layout">
-    <main>
-      <h2 class="section-title">Latest News</h2>
-      <div class="grid3">
-        <a href="#" class="card"><div class="img"></div><div class="body"><div class="tag">Politics</div><h3>Card headline placeholder text here</h3><div class="meta">30 min ago</div></div></a>
-        <a href="#" class="card"><div class="img c2"></div><div class="body"><div class="tag">Health</div><h3>Card headline placeholder text here</h3><div class="meta">1 hr ago</div></div></a>
-        <a href="#" class="card"><div class="img c3"></div><div class="body"><div class="tag">Science</div><h3>Card headline placeholder text here</h3><div class="meta">2 hrs ago</div></a></div>
-      </div>
-      <div class="ad ad-infeed"><small>Advertisement</small><strong>IN-FEED AD — Responsive</strong>Paste ad code here</div>
-      <h2 class="section-title">Business &amp; Technology</h2>
-      <div class="list">
-        <article><div class="img c3"></div><a href="#"><div class="tag">Business</div><h3>List-style headline placeholder that can run across two lines</h3><p>Summary text placeholder for the article. Keep it to one or two sentences.</p><div class="meta">By Author • 4 hrs ago</div></a></article>
-        <article><div class="img c4"></div><a href="#"><div class="tag">Technology</div><h3>List-style headline placeholder that can run across two lines</h3><p>Summary text placeholder for the article. Keep it to one or two sentences.</p><div class="meta">By Author • 5 hrs ago</div></a></article>
-        <article><div class="img c5"></div><a href="#"><div class="tag">Markets</div><h3>List-style headline placeholder that can run across two lines</h3><p>Summary text placeholder for the article. Keep it to one or two sentences.</p><div class="meta">By Author • 6 hrs ago</div></a></article>
-      </div>
-      <section class="brand-promo">
-        <div class="txt">
-          <div class="label">Sponsored • Brand Partner</div>
-          <h2>Your brand headline goes here</h2>
-          <p>Promotional message for your sponsor or your own product. Keep it short, clear, and action-focused.</p>
-          <button class="btn" style="background:#f5b301;color:#111">Learn More</button>
-        </div>
-        <div class="img"></div>
-      </section>
-      <h2 class="section-title">Sports &amp; Entertainment</h2>
-      <div class="grid3">
-        <a href="#" class="card"><div class="img c5"></div><div class="body"><div class="tag">Sports</div><h3>Card headline placeholder text here</h3><div class="meta">3 hrs ago</div></div></a>
-        <a href="#" class="card"><div class="img c4"></div><div class="body"><div class="tag">Music</div><h3>Card headline placeholder text here</h3><div class="meta">4 hrs ago</div></div></a>
-        <a href="#" class="card"><div class="img c2"></div><div class="body"><div class="tag">Film</div><h3>Card headline placeholder text here</h3><div class="meta">5 hrs ago</div></div></a>
-      </div>
-      <h2 class="section-title">Our Partners</h2>
-      <div class="partners">
-        <div>LOGO</div><div>LOGO</div><div>LOGO</div><div>LOGO</div><div>LOGO</div>
-      </div>
-    </main>
-    <aside>
-      <div class="sticky">
-        <div class="ad ad-rect"><small>Advertisement</small><strong>AD SLOT — 300 × 250</strong>Paste ad code here</div>
-        <div class="box">
-          <h4>Trending Now</h4>
-          <ul class="trend">
-            <li>Trending headline placeholder one</li>
-            <li>Trending headline placeholder two</li>
-            <li>Trending headline placeholder three</li>
-            <li>Trending headline placeholder four</li>
-            <li>Trending headline placeholder five</li>
-          </ul>
-        </div>
-        <div class="box newsletter">
-          <h4>Daily Briefing</h4>
-          <p class="meta">Get the top stories in your inbox every morning.</p>
-          <input type="email" placeholder="you@email.com">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0152f"/><stop offset="1" stop-color="#9b0c23"/></linearGradient>
+      <symbol id="globe" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="66" fill="url(#lg)"/>
+        <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round">
+          <circle cx="70" cy="70" r="48"/><ellipse cx="70" cy="70" rx="20" ry="48"/>
+          <line x1="22" y1="70" x2="118" y2="70"/>
+          <path d="M30 44Q70 56 110 44M30 96Q70 84 110 96" opacity=".8"/>
+        </g>
+        <g fill="none" stroke="#f5b301" stroke-width="7" stroke-linecap="round"><path d="M104 14A66 66 0 0 1 134 44"/></g>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="topbar"><div class="wrap">
+    <div id="date">Loading date…</div>
+    <div><a href="#">Advertise</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Sign in</a></div>
+  </div></div>
+  <div class="ticker"><div class="wrap">
+    <b>LIVE</b>
+    <span id="tickerText">
+      {% for item in news.ticker %}
+        {% if not loop.first %}&nbsp;•&nbsp;{% endif %}
+        {{ item.title | truncate(90) }}
+      {% endfor %}
+    </span>
+  </div></div>
+  <header class="main">
+    <div class="wrap">
+      <div class="masthead">
+        <a href="/" class="logo" aria-label="Global Media home">
+          <svg><use href="#globe"/></svg>
+          <span class="word"><span class="g">GLOBAL</span><span class="m">MEDIA</span></span>
+        </a>
+        <div class="actions">
+          <input class="search" type="search" placeholder="Search news...">
           <button class="btn">Subscribe</button>
         </div>
-        <div class="ad ad-sky"><small>Advertisement</small><strong>AD SLOT — 300 × 600</strong>Paste ad code here</div>
       </div>
-    </aside>
-  </div>
-</div>
-<footer>
-  <div class="wrap">
-    <div class="ad" style="width:100%;max-width:970px;height:90px;margin-bottom:34px"><small>Advertisement</small><strong>FOOTER BILLBOARD — 970 × 90</strong></div>
-    <div class="fgrid">
-      <div><div class="logo" style="color:#fff;font-size:28px">The Daily <em>Ledger</em></div><p style="margin-top:10px;max-width:320px">Independent reporting you can trust. Replace this with your mission statement.</p></div>
-      <div><h5>Sections</h5><a href="#">World</a><a href="#">Business</a><a href="#">Tech</a><a href="#">Sports</a></div>
-      <div><h5>Company</h5><a href="#">About</a><a href="#">Advertise</a><a href="#">Careers</a><a href="#">Contact</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#">Ethics</a></div>
     </div>
-    <div class="copy"><span>© 2026 The Daily Ledger. All rights reserved.</span><span>Facebook • X • Instagram • YouTube</span></div>
+    <nav class="cats"><div class="wrap">
+      <a href="#" class="active">Home</a><a href="#">World</a><a href="#">Politics</a><a href="#">Business</a>
+      <a href="#">Technology</a><a href="#">Sports</a><a href="#">Entertainment</a><a href="#">Health</a><a href="#">Opinion</a><a href="#">Video</a>
+    </div></nav>
+  </header>
+  <div class="wrap">
+    <div class="ad ad-leader"><small>Advertisement</small><strong>AD SLOT — 728 × 90</strong>Paste ad code here</div>
+    <div class="ad ad-mobile"><small>Ad</small>320 × 50</div>
+    <section class="hero">
+      {% set lead = news.top[0] %}
+      <article class="lead" id="lead">
+        <a href="{{ lead.url }}" target="_blank" rel="noopener">
+          <div class="img"><img src="{{ lead.image }}" alt="{{ lead.title }}" loading="lazy" referrerpolicy="no-referrer"></div>
+          <div class="tag" style="margin-top:14px">Top Story</div>
+          <h1>{{ lead.title | truncate(120) }}</h1>
+          <p>{{ lead.summary | truncate(180) }}</p>
+          <div class="meta">{{ lead.source }} • {{ lead.date | date("relative") }}</div>
+        </a>
+      </article>
+      <div class="stack" id="stack">
+        {% for item in news.top %}
+          {% if loop.index0 > 0 and loop.index0 < 5 %}
+            <article>
+              <div class="img{% if loop.index0 % 5 == 1 %} c2{% elseif loop.index0 % 5 == 2 %} c3{% elseif loop.index0 % 5 == 3 %} c4{% elseif loop.index0 % 5 == 4 %} c5{% endif %}"><img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" referrerpolicy="no-referrer"></div>
+              <a href="{{ item.url }}" target="_blank" rel="noopener"><div class="tag">{{ item.category }}</div><h3>{{ item.title | truncate(80) }}</h3><div class="meta">{{ item.source }} • {{ item.date | date("relative") }}</div></a>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+    <div class="layout">
+      <main>
+        <h2 class="section-title">Latest News</h2>
+        <div class="grid3" id="latestGrid">
+          {% for item in news.latest %}
+            {% if loop.index <= 3 %}
+              <a href="{{ item.url }}" class="card" target="_blank" rel="noopener">
+                <div class="img{% if loop.index0 % 5 == 0 %} c2{% elseif loop.index0 % 5 == 1 %} c3{% elseif loop.index0 % 5 == 2 %} c4{% elseif loop.index0 % 5 == 3 %} c5{% endif %}"><img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" referrerpolicy="no-referrer"></div>
+                <div class="body"><div class="tag">{{ item.category }}</div><h3>{{ item.title | truncate(90) }}</h3><div class="meta">{{ item.source }} • {{ item.date | date("relative") }}</div></div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="ad ad-infeed"><small>Advertisement</small><strong>IN-FEED AD — Responsive</strong>Paste ad code here</div>
+        <h2 class="section-title">Business &amp; Technology</h2>
+        <div class="list" id="bizList">
+          {% for item in news.business %}
+            {% if loop.index <= 4 %}
+              <article>
+                <div class="img{% if loop.index0 % 4 == 0 %} c3{% elseif loop.index0 % 4 == 1 %} c4{% elseif loop.index0 % 4 == 2 %} c5{% else %} c2{% endif %}"><img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" referrerpolicy="no-referrer"></div>
+                <a href="{{ item.url }}" target="_blank" rel="noopener"><div class="tag">{{ item.category }}</div><h3>{{ item.title | truncate(80) }}</h3><p>{{ item.summary | truncate(140) }}</p><div class="meta">{{ item.source }} • {{ item.date | date("relative") }}</div></a>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <section class="brand-promo">
+          <div class="txt">
+            <div class="label">Sponsored • Brand Partner</div>
+            <h2>Your brand headline goes here</h2>
+            <p>Promotional message for your sponsor or your own product. Keep it short, clear and action-focused.</p>
+            <button class="btn" style="background:#f5b301;color:#111">Learn More</button>
+          </div>
+          <div class="img"></div>
+        </section>
+        <h2 class="section-title">Sports &amp; Entertainment</h2>
+        <div class="grid3" id="funGrid">
+          {% for item in news.fun %}
+            {% if loop.index <= 3 %}
+              <a href="{{ item.url }}" class="card" target="_blank" rel="noopener">
+                <div class="img{% if loop.index0 % 5 == 0 %} c5{% elseif loop.index0 % 5 == 1 %} c4{% else %} c2{% endif %}"><img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" referrerpolicy="no-referrer"></div>
+                <div class="body"><div class="tag">{{ item.category }}</div><h3>{{ item.title | truncate(90) }}</h3><div class="meta">{{ item.source }} • {{ item.date | date("relative") }}</div></div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <h2 class="section-title">Our Partners</h2>
+        <div class="partners"><div>LOGO</div><div>LOGO</div><div>LOGO</div><div>LOGO</div><div>LOGO</div></div>
+      </main>
+      <aside>
+        <div class="sticky">
+          <div class="ad ad-rect"><small>Advertisement</small><strong>AD SLOT — 300 × 250</strong>Paste ad code here</div>
+          <div class="box">
+            <h4>Trending Now</h4>
+            <ul class="trend" id="trending">
+              {% for item in news.top %}
+                {% if loop.index <= 5 %}
+                  <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | truncate(70) }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="box newsletter">
+            <h4>Daily Briefing</h4>
+            <p class="meta">Get the top stories in your inbox every morning.</p>
+            <input type="email" placeholder="you@email.com">
+            <button class="btn">Subscribe</button>
+          </div>
+          <div class="ad ad-sky"><small>Advertisement</small><strong>AD SLOT — 300 × 600</strong>Paste ad code here</div>
+        </div>
+      </aside>
+    </div>
   </div>
-</footer>
-<div class="sticky-footer-ad"><div class="ad ad-mobile" style="display:flex;margin:0"><small>Ad</small>320 × 50</div></div>
-<script>
-document.getElementById('date').textContent =
-  new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-</script>
+  <footer>
+    <div class="wrap">
+      <div class="ad" style="width:100%;max-width:970px;height:90px;margin-bottom:34px"><small>Advertisement</small><strong>FOOTER BILLBOARD — 970 × 90</strong></div>
+      <div class="fgrid">
+        <div>
+          <a href="/" class="logo"><svg><use href="#globe"/></svg><span class="word"><span class="g">GLOBAL</span><span class="m">MEDIA</span></span></a>
+          <p style="margin-top:12px;max-width:320px">Independent reporting you can trust. Replace this with your mission statement.</p>
+        </div>
+        <div><h5>Sections</h5><a href="#">World</a><a href="#">Business</a><a href="#">Tech</a><a href="#">Sports</a></div>
+        <div><h5>Company</h5><a href="#">About</a><a href="#">Advertise</a><a href="#">Careers</a><a href="#">Contact</a></div>
+        <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#">Ethics</a></div>
+      </div>
+      <div class="copy"><span>© 2026 Global Media. All rights reserved.</span><span>Facebook • X • Instagram • YouTube</span></div>
+    </div>
+  </footer>
+  <div class="sticky-footer-ad"><div class="ad ad-mobile" style="display:flex;margin:0"><small>Ad</small>320 × 50</div></div>
+  <script>
+    document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+  </script>
 </body>
 </html>
